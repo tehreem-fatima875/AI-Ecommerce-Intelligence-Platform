@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --background: #090c12;
+  --surface: #10141d;
+  --surface-raised: #151b26;
+  --border: #252c38;
+  --muted: #929baa;
+  --foreground: #f4f6fa;
+  --accent: #b6f36b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { min-height: 100%; background: var(--background); scroll-behavior: smooth; }
+body { margin: 0; min-height: 100vh; background: var(--background); color: var(--foreground); font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+button, a, input, select { font: inherit; }
+button, a { transition: color .18s ease, border-color .18s ease, background-color .18s ease, transform .18s ease; }
+::selection { background: rgba(182,243,107,.25); color: white; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.surface { border: 1px solid var(--border); border-radius: 16px; background: var(--surface); }
+.eyebrow { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.page-enter { animation: page-enter .35s ease both; }
+@keyframes page-enter { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
